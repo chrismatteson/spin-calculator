@@ -1,0 +1,22 @@
+spin_manifest_version = "1"
+authors = ["Chris Matteson <chris.matteson@gmail.com>"]
+description = "A simple calculator on Spin"
+name = "spin-calculator"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "spin-calculator"
+source = "api/target/spin-calculator.wasm"
+exclude_files = ["**/node_modules"]
+[component.trigger]
+route = "/api"
+[component.build]
+command = "cd api && npm run build"
+
+[[component]]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
+id = "ui"
+files = [ { source = "ui", destination = "/" } ]
+[component.trigger]
+route = "/..."
