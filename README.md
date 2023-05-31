@@ -1,3 +1,3 @@
-## HTTP-TS template
+# Spin Calculator
 
-This is a simple template to get started with spin-js-sdk using typescript.
+This is a simple calculator UI and API written in typescript for Spin to demonstrate the capabilities of Spin. The api accepts a plaintext string with numbers and + - * / operators and returns the result.
